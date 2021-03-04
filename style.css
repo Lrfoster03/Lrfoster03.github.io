@@ -4,7 +4,22 @@ head {
 } 
 
 .Formatting{
-  text-align: center; align-items: center; font-size: 25px; margin: 15%; margin-top: 0%;
+  text-align: center; 
+  align-items: center; 
+  font-size: 25px; 
+  margin: 15%; 
+  margin-top: 0%;
+}
+
+.FormattingHome{
+  color: black;
+  font-size: 25px; 
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 16px;
+  top: 1000px;
+  width: 100%;
+  text-align: center;
 }
 
 a:link {
@@ -51,7 +66,14 @@ body button:hover { /* This is a CSS selector that modifies the styling when the
   position: absolute;
   z-index: 1;
   left: 1650px;
-  top: -1px;
+  top: -2px;
+}
+
+.extracurricularIMG{
+  position: absolute;
+  z-index: 1;
+  left: 1650px;
+  top: -2px;
 }
 
 /* Dropdown Button */
@@ -283,7 +305,7 @@ body button:hover { /* This is a CSS selector that modifies the styling when the
   font-size: 24px;
   padding: 8px 8px;
   position: static;
-  margin-top: 600px;
+  margin-top: 200px;
   text-align: right;
   right: 250px;
 }
