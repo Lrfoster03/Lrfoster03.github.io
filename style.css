@@ -51,7 +51,7 @@ body button:hover { /* This is a CSS selector that modifies the styling when the
   position: absolute;
   z-index: 1;
   left: 1650px;
-  top: -5px;
+  top: -2px;
 }
 
 /* Dropdown Button */
