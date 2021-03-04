@@ -51,14 +51,14 @@ body button:hover { /* This is a CSS selector that modifies the styling when the
   position: absolute;
   z-index: 1;
   left: 1650px;
-  top: -2px;
+  top: -1px;
 }
 
 /* Dropdown Button */
 .dropbtn {
     background-color: transparent;
     right: 40px;
-    top: -10px;
+    top: -7px;
     font-size: 1em;
     font-weight: 300;
     padding: .8em;
