@@ -4,5 +4,5 @@ source "https://rubygems.org"
 gemspec
 
 gem "webrick", "~> 1.7"
-gem 'jekyll-theme-hamilton'
-gem 'jekyll-remote-theme'
+# gem 'jekyll-theme-hamilton'
+# gem 'jekyll-remote-theme'
