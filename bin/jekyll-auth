@@ -101,7 +101,7 @@ Mercenary.program("jekyll-auth") do |p|
     c.description "Configure Heroku for use with your Jekyll Auth site"
     c.option "client_id", "21877112b5bad44c6e51", "Your oauth app client id"
     c.option "client_secret", "abd5d26b254179ce260e0ac6a2968f5f01caedb6", "Your oauth app client secret"
-    c.option "team_id", "708949", "The team to authenticate against"
+    c.option "team_id", "7089491", "The team to authenticate against"
     c.option "org_name", "CPTS-327-2FA-Project", "An organization to authenticate against"
     c.action do |_args, options|
       if find_executable("heroku").nil?
