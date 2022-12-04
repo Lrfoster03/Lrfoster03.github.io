@@ -26,6 +26,14 @@ skin: daylight
 # 
 # disqus:
 
+# Jekyll-auth
+# ======
+jekyll_auth:
+  whitelist:
+    # - "^((?!draft).)*$"
+    - drafts?
+
+
 # Jekyll
 # ======
 exclude:
