@@ -31,7 +31,7 @@ skin: daylight
 jekyll_auth:
   whitelist:
     # - "^((?!draft).)*$"
-    - drafts?
+    # - drafts?
 
 
 # Jekyll
