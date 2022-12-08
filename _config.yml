@@ -5,7 +5,6 @@ author: Logan Foster
 avatar: /Robo Logo.png
 email: lrfoster03@gmail.com
 # baseurl: "Lrfoster03.github.io"
-baseurl: "https://my-new-cool-2fa-app.herokuapp.com"
 
 plugins:
   - jekyll-seo-tag
