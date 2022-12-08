@@ -10,5 +10,7 @@ gem 'jekyll-feed'
 gem 'jekyll-sitemap'
 gem 'jekyll-paginate'
 gem 'faraday-retry'
+gem "rake"
+ruby "3.1.2"
 # gem 'jekyll-theme-hamilton'
 # gem 'jekyll-remote-theme'

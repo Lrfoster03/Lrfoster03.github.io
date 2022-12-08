@@ -14,6 +14,10 @@ task :site do
   `bundle exec jekyll-auth`
 end
 
+task "assets:precompile" do
+  exec("jekyll build")
+end
+
 require "rspec/core/rake_task"
 desc "Run specs"
 RSpec::Core::RakeTask.new do |t|
