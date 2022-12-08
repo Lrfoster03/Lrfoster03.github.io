@@ -4,7 +4,7 @@ description: I'm Logan Foster, a 19 year robotics student studying Computer Scie
 author: Logan Foster
 avatar: /Robo Logo.png
 email: lrfoster03@gmail.com
-# baseurl: "Lrfoster03.github.io"
+baseurl: "Lrfoster03.github.io"
 
 plugins:
   - jekyll-seo-tag
