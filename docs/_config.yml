@@ -1,2 +1,60 @@
 title: Jekyll Auth
 permalink: pretty
+
+# title: Lrfoster03
+description: I'm Logan Foster, a 19 year robotics student studying Computer Science and Applied Mathematics 
+            at Washington State University in Pullman.
+author: Logan Foster
+avatar: /Robo Logo.png
+email: lrfoster03@gmail.com
+# baseurl: "Lrfoster03.github.io"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  # - jekyll-theme-hamilton
+  # - jekyll-remote-theme
+
+paginate: 10
+# remote_theme: ngzhio/jekyll-theme-hamilton
+skin: daylight
+
+# Uncomment the below line and set the tracking ID for enabling Google Analytics
+# 
+# google_analytics: 
+
+# Uncomment the below lines and set the Disqus shortname for enabling Disqus
+# 
+# disqus:
+
+# Jekyll-auth
+# ======
+jekyll_auth:
+  whitelist:
+    # - "^((?!draft).)*$"
+    - drafts?
+
+
+# Jekyll
+# ======
+exclude:
+  - scripts/
+  - README.md
+  - jekyll-theme-hamilton.gemspec
+
+# Jekyll SEO Tag (Optional)
+# =========================
+twitter:
+  username: lrfoster03
+  card: summary
+logo: Robo Logo.png
+social:
+  name: Logan Foster
+  links:
+    # - https://twitter.com/ngzhio
+    # - https://www.facebook.com/ngzhio
+    - https://github.com/Lrfoster03
+google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
+lang: en
