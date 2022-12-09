@@ -9,3 +9,5 @@ Hi there, <img width="30" align="center" src="https://camo.githubusercontent.com
 
 I'm Logan Foster, a 19 year robotics student studying Computer Science and Applied Mathematics 
 at Washington State University in Pullman.
+
+I'm interested in AI and Autonomous Applications and hope to one day pursue a career in programming robotic systems!
