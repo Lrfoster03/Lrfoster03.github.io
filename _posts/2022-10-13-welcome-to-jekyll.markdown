@@ -1,12 +1,12 @@
 ---
-# This is a draft
+# This is a draft mainly for myself to help with run commands
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2022-10-13 00:00:33 -0700
 categories: jekyll update
 published: false
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `bundle exec jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated. If you want to push to heroku, the best way is to run `git push heroku HEAD:master`
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `bundle exec jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated. Alternatively, if you wish to run the site with the Jekyll-Auth 2FA encryption, you can run it using `bundle exec jekyll-auth serve`. If you want to push to heroku, the best way is to run `git push heroku HEAD:master`
 
 Jekyll requires blog post files to be named according to the following format:
 

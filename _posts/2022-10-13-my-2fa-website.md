@@ -6,26 +6,21 @@ author: "Logan Foster"
 categories: Projects
 permalink: /my-2fa-project
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+For my CPT_S 327 Cybersecurity course, I decided to base my final project on a 2FA service for this very website you're using now. The intial plan was for me to create a site on my own, however upon looking into some further options, I decided that it would be better to utilize the GitHub API and GitHub's very own OAuth 2FA service. This way, I could use GitHub pages to host my site (Like I am doing now), whilst using GitHub's OAuth service to authenticate users.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+I begun by creating the site using the Jekyll Static site generator. I then created a GitHub repository for the site, and pushed the site to the repository. Then I could get started on the 2FA part of it. I used the [Jekyll-Auth][jekyll-auth] dependency for the majority of the project. I did hit quite a few snags with the page though that I will talk about more in depth below. 
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Using Jekyll-Auth, one snag I hit was how the site worked with Encryption. When I hosted the site through GitHub pages like I am now, the encryption wouldn't work. When I hosted it through Heroku like the page initially required, then it would work. I was able to get it to work by using the `bundle exec jekyll-auth serve` command. This command would allow me to host the site locally, and then use the GitHub OAuth service to authenticate users. 
 
-Jekyll also offers powerful support for code snippets:
+I then created a GitHub organization to act as a whitelist to authenticate users. With this, I didn't need to keep track of users cridentials myself, and I could just use the GitHub API to check if a user was a member of the organization. This was a much better solution and made the project much easier to manage. 
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Then, all I had to do was push the site to Heroku and it was done. Upon testing with a few of my friends, I found that the site worked perfectly. I was able to authenticate users, and then redirect them to the site. I could add new users to the organization and they would be able to authenticate themselves. I was able to remove users from the organization and they would no longer be able to authenticate themselves. 
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Unfortunately, due to Heroku being a paid service, I had to take the site down. 
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+If you want to try out the Jekyll-Auth service, you can find the GitHub repository [here][jekyll-auth]. Even though it has reached end of life, it still works perfectly and I highly recommend it.
+
+
+
+[jekyll-auth]: https://github.com/benbalter/jekyll-auth

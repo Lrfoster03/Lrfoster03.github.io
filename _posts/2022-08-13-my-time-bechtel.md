@@ -5,26 +5,20 @@ date:   2022-08-13 00:00:33 -0700
 categories: Internships
 permalink: /bechtel-intern
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+This past summer, I had the amazing opportunity to participate in an Internship through the Bechtel Coorpiration. During this internship, I worked alongside the Controls and Instrumentation team at the Waste Treatment Plant site in Richland, Washington. It was an amazing experience, and I learned a lot about the field of engineering. I also learned a lot about myself, and what I want to do in the future. I will be writing  about my experience, and what I learned. I hope you enjoy!
 
-`YEAR-MONTH-DAY-title.MARKUP`
+During my internship, I was able to work on a lot of different projects and with many different teams. I was able to work with the C&I team to diagnose and evaluate the pros and cons with utilizing a new BUS technoglogy on the WTP Site. I also had the opportunity to work alongside the Plant Installed Software Team in testing a new database that was established to help streamline their workflow. 
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Later on in my internship, I had the opportunity to shadow the  Rapid Response team on the Waste Treatment Plant Job site where I assisted in testing the PID Controller Systems for Plant water flow. 
 
-Jekyll also offers powerful support for code snippets:
+I was so thankful to join the C&I Team at the WTP Plant in Richland, WA. This summer, I was able to see incredible insights into engineering in a nuclear environment and got the opportunity to teams that all work out of the WTP Jobsite. I got the chance to see real engineering in person and even further my knowledge of robotic systems whilst there!
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+I would like to give a massive thanks to my supervisors, Steven Schmude and Scott Goad, and to my personal buddy, Chetan Ghataorhe for the immense opportunity to explore all the different systems that came along with the WTP Project!
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Working at the WTP Plant and participating in the immensely important work that is done there made this summer one to remember!
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+<img title="ALARA Hammer Expo Photo" alt="Fellow Intern Rachel Voke and I pose with a modified Boston Dynamics Spot robot" src="Boston_Dynamic_Dog_Photo.jpeg">
+
+  <figcaption>Fellow Intern Rachel Voke and I pose with a modified Boston Dynamics Spot robot</figcaption>
+
