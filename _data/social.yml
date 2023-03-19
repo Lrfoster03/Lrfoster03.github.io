@@ -1,6 +1,6 @@
-- title: Twitter
-  url: https://twitter.com/Logoas_
-  icon: fab fa-twitter
+# - title: Twitter
+#   url: https://twitter.com/Logoas_
+#   icon: fab fa-twitter
 - title: GitHub
   url: https://github.com/Lrfoster03
   icon: fab fa-github
@@ -10,9 +10,9 @@
 # - title: Email
 #   url: mailto: lrfoster03@gmail.com
 #   icon: fas fa-envelope
-- title: Instagram
-  url: https://www.instagram.com/Logoas__/
-  icon: fab fa-instagram
+# - title: Instagram
+#   url: https://www.instagram.com/Logoas__/
+#   icon: fab fa-instagram
 # - title: Facebook
 #   url: https://www.facebook.com/logan.foster.3
 #   icon: fab fa-facebook
