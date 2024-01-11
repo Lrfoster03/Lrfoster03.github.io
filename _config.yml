@@ -2,7 +2,7 @@ title: Lrfoster03
 description: I'm Logan Foster, a student studying Computer Science and Applied Mathematics 
             at Washington State University in Pullman. I was also selected to be a 2024 Boeing Scholar Cohort!
 author: Logan Foster
-avatar: /Personal Pic.jpeg
+avatar: /assets/images/Personal Pic.jpeg
 email: lrfoster03@gmail.com
 # baseurl: "Lrfoster03.github.io"
 
@@ -46,7 +46,7 @@ exclude:
 twitter:
   username: lrfoster03
   card: summary
-logo: Personal Pic.jpeg
+logo: /assets/images/Personal Pic.jpeg
 social:
   name: Logan Foster
   links:

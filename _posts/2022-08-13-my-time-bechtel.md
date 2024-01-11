@@ -18,7 +18,7 @@ I would like to give a massive thanks to my supervisors, Steven Schmude and Scot
 
 Working at the WTP Plant and participating in the immensely important work that is done there made this summer one to remember!
 
-<img title="ALARA Hammer Expo Photo" alt="Fellow Intern Rachel Voke and I pose with a modified Boston Dynamics Spot robot" src="Boston_Dynamic_Dog_Photo.jpeg">
+<img title="ALARA Hammer Expo Photo" alt="Fellow Intern Rachel Voke and I pose with a modified Boston Dynamics Spot robot" src="/assets/images/Boston_Dynamic_Dog_Photo.jpeg">
 
   <figcaption>Fellow Intern Rachel Voke and I pose with a modified Boston Dynamics Spot robot</figcaption>
 
