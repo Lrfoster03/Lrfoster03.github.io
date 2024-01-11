@@ -47,7 +47,7 @@ I should specify, this application was developed using my 2018 MacBook Pro runni
 The npm install command should install all exterior files and imports. Running the npm start command will start the application. After a few seconds, this will start the app and run it via a local server on the port 3000. The application should open automatically in your default browser, however if it does not, most modern browsers will run it (Microsoft Edge, Google Chrome, Firefox, or Safari), You can them type in in localhost:3000 into the search bar and my application will connect and begin running. You can stop running the application by entering CTRL + C into the terminal. The application may ask if you would like to terminate the job. Type y and the app should stop running. You can run npm start again if you would like to relaunch the app. 
 
 
-**<u> Bugs / Trouble Ihad:</u>**
+**<u> Bugs / Trouble I had:</u>**
 
 Due to the application being a web app, one bug / feature is when reloading the page, all the objects that we’re on the page previously are reset and the application restarts to its default states. This is due to the application being a webpage. Every time the page is refreshed, it reconnects to the server and removes the old client. I view this as a positive feature however as it allows users of the application to easily delete and start over their work. 
 
