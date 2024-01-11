@@ -8,7 +8,7 @@ permalink: /sketchpad
 ---
 
 
-This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. 
+This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. If you want to take a look at it, you can find it [here][sketchpad].
 
 **<u>Implementation:</u>**
 
@@ -58,3 +58,4 @@ My next bug with directed edges is with color. When selecting the color of the d
 
 <u>Color Picker:</u> As mentioned previously, the color picker that I implemented was based off the react-color import, and as such made the color picking process significantly easier. One bug that I did notice with the color picker that I used however was the ability to implement opacity with the colors. There is an option for it on the color picker, however it refuses to adjust from 100. I am unaware if this is a bug with my implementation or a bug with the import. 
 
+[sketchpad]: https://lrfoster03-graph-theory-sketchpad.github.io/Lrfoster03-Graph-Theory-Sketchpad/
