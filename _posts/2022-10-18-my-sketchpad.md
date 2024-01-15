@@ -8,7 +8,7 @@ permalink: /sketchpad
 ---
 
 
-This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. If you want to take a look at it, you can find it [here][sketchpad].
+This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. If you want to take a look at it, you can find it [here](https://lrfoster03-graph-theory-sketchpad.github.io/Lrfoster03-Graph-Theory-Sketchpad/){:target="_blank"}.
 
 **<u>Implementation:</u>**
 
@@ -57,5 +57,6 @@ Due to the application being a web app, one bug / feature is when reloading the 
 My next bug with directed edges is with color. When selecting the color of the directed edge, the edge itself changes color but the arrow indicating direction will only change to whatever the first directed edge’s color is. If there are multiple directed edges, and I change the color of the first one, then the second directed edges’ arrow will change to whatever color the first directed edge is, while the line of the second directed edge stays whatever color it was initially. Once again, I believe this has to do with the way I implemented the arrow indicating direction for the directed edge, and am unsure of the cause. 
 
 <u>Color Picker:</u> As mentioned previously, the color picker that I implemented was based off the react-color import, and as such made the color picking process significantly easier. One bug that I did notice with the color picker that I used however was the ability to implement opacity with the colors. There is an option for it on the color picker, however it refuses to adjust from 100. I am unaware if this is a bug with my implementation or a bug with the import. 
+
 
 [sketchpad]: https://lrfoster03-graph-theory-sketchpad.github.io/Lrfoster03-Graph-Theory-Sketchpad/
