@@ -27,6 +27,8 @@ Crazy Right? The thing is laid out with an XT Column, Southpaw Numpad, Navigatio
 
 We're planning on creating a Geekhack page and running a local group by of the unit, so when I get more photos I will update this post with them. 
 
+Geekhack Page: [The Compensator](https://geekhack.org/index.php?topic=122493.0)
+
 All in all, what started as a goofy idea in 2022 has turned into a full fledged project. I'm excited to see where it goes from here and any other keyboard projects I work on.
 
 
