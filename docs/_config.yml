@@ -1,13 +1,10 @@
-# title: Jekyll Auth
-# permalink: pretty
-
 title: Lrfoster03
 description: I'm Logan Foster, a student studying Computer Science and Applied Mathematics 
             at Washington State University in Pullman. I was also selected to be a 2024 Boeing Scholar Cohort!
 author: Logan Foster
 avatar: /assets/images/Personal Pic.jpeg
 email: lrfoster03@gmail.com
-# baseurl: "Lrfoster03.github.io"
+# baseurl: "Logoas.xyz"
 
 plugins:
   - jekyll-seo-tag
@@ -20,6 +17,9 @@ plugins:
 paginate: 10
 # remote_theme: ngzhio/jekyll-theme-hamilton
 skin: daylight
+
+# permalink: /:categories/:title/
+permalink: pretty
 
 # Uncomment the below line and set the tracking ID for enabling Google Analytics
 # 
