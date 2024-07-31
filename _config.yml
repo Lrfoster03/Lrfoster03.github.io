@@ -4,7 +4,7 @@ description: I'm Logan Foster, a student studying Computer Science and Applied M
 author: Logan Foster
 avatar: /assets/images/Personal Pic.jpeg
 email: lrfoster03@gmail.com
-# baseurl: "Lrfoster03.github.io"
+# baseurl: "Logoas.xyz"
 
 plugins:
   - jekyll-seo-tag
