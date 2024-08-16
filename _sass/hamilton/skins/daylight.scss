@@ -8,7 +8,7 @@ $border-color-light:    lighten($border-color, 40%) !default;
 $border-color-dark:     darken($border-color, 25%) !default;
 
 $link-base-color:       rgb(40, 105, 209) !default;
-$link-visited-color:    rgb(21, 56, 112)!default;
+$link-visited-color:    darken($link-base-color, 15%)!default;
 
 $table-text-color:      lighten($text-color, 18%) !default;
 $table-zebra-color:     mix($background-color, $border-color, 90%) !default;
