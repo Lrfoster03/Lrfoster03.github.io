@@ -4,6 +4,7 @@ title:  "My Bechtel Internship"
 date:   2022-08-13 00:00:33 -0700
 categories: Internships
 permalink: /bechtel-intern
+published: false
 ---
 
 This past summer, I had the amazing opportunity to participate in an Internship through the Bechtel Coorpiration. During this internship, I worked alongside the Controls and Instrumentation team at the Waste Treatment Plant site in Richland, Washington. It was an amazing experience, and I learned a lot about the field of engineering. I also learned a lot about myself, and what I want to do in the future. I will be writing  about my experience, and what I learned. I hope you enjoy!
