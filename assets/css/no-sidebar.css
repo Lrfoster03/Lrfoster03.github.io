@@ -1,0 +1,13 @@
+.wrapper,
+.site-body,
+.site-main,
+.site-container {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 1rem;
+}
+
+.site-main {
+  display: block;
+  width: 100%;
+}

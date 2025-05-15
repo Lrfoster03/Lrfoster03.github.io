@@ -1,0 +1,64 @@
+---
+layout: no-sidebar
+title: Wind and Truth Progress Bar
+Log_Page_Count: 119
+Max_Page_Count: 360
+pageTotal: 1219
+---
+
+<h1>Rhythm of War Progress Bar</h1>
+
+<p>Logan and Max are reading "Rhythm of War". This page shows their progress in the book. (Also known as the countdown meter until we can read Wind and Truth)</p>
+
+<div class="progress-section">
+  <h2>Logan's Progress</h2>
+  {% assign progress1 = page.Log_Page_Count | times: 100 | divided_by: page.pageTotal %}
+  <div class="progress-container">
+    <div class="progress-barLog" style="width: {{ progress1 }}%;">
+      {{ progress1 }}%
+    </div>
+  </div>
+</div>
+
+<div class="progress-section">
+  <h2>Max's Progress</h2>
+  {% assign progress2 = page.Max_Page_Count | times: 100 | divided_by: page.pageTotal %}
+  <div class="progress-container">
+    <div class="progress-barMax" style="width: {{ progress2 }}%;">
+      {{ progress2 }}%
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress-container {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .progress-barLog {
+    height: 100%;
+    background-color: #408ec2;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    transition: width 0.3s ease;
+  }
+
+  .progress-barMax {
+    height: 100%;
+    background-color: rgb(180, 52, 52);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    transition: width 0.3s ease;
+  }
+
+  .progress-section {
+    margin-bottom: 40px;
+  }
+</style>
