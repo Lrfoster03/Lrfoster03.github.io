@@ -6,6 +6,8 @@ Max_Page_Count: 360
 pageTotal: 1219
 ---
 
+<br>
+
 <h1>Rhythm of War Progress Bar</h1>
 
 <p>Logan and Max are reading "Rhythm of War". This page shows their progress in the book. (Also known as the countdown meter until we can read Wind and Truth)</p>
@@ -13,22 +15,35 @@ pageTotal: 1219
 <div class="progress-section">
   <h2>Logan's Progress</h2>
   {% assign progress1 = page.Log_Page_Count | times: 100 | divided_by: page.pageTotal %}
-  <div class="progress-container">
-    <div class="progress-barLog" style="width: {{ progress1 }}%;">
-      {{ progress1 }}%
+    <div class="progress-container">
+        {% if progress1 >= 100 %}
+        <div class="progress-barFinished" style="width: {{ progress1 }}%;">
+        {{ progress1 }}%
+        </div>
+        {% else %}
+        <div class="progress-barLog" style="width: {{ progress1 | default: 0 }}%;">
+        {{ progress1 }}%
+        </div>
+        {% endif %}
     </div>
-  </div>
 </div>
 
 <div class="progress-section">
   <h2>Max's Progress</h2>
   {% assign progress2 = page.Max_Page_Count | times: 100 | divided_by: page.pageTotal %}
   <div class="progress-container">
-    <div class="progress-barMax" style="width: {{ progress2 }}%;">
+    {% if progress2 >= 100 %}
+    <div class="progress-barFinished" style="width: {{ progress2 | default: 0 }}%;">
       {{ progress2 }}%
     </div>
+    {% else %}
+    <div class="progress-barMax" style="width: {{ progress2 | default: 0 }}%;">
+      {{ progress2 }}%
+    </div>
+    {% endif %}
   </div>
 </div>
+
 
 <style>
   .progress-container {
@@ -52,6 +67,14 @@ pageTotal: 1219
   .progress-barMax {
     height: 100%;
     background-color: rgb(180, 52, 52);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    transition: width 0.3s ease;
+  }
+  .progress-barFinished {
+    height: 100%;
+    background-color: rgb(57, 184, 89);
     text-align: center;
     line-height: 30px;
     color: white;

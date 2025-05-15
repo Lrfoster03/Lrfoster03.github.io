@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
-    <link rel="stylesheet" href="{{ "/assets/css/no-sidebar.css" | relative_url }}">
-
     {% include head.html %}
 
     {% seo %}
+
+
+  </head>
 
   <body>
     <div class="site-container">
       <header class="site-header">
         {% include header.html %}
       </header>
-      
       <div class="wrapper">
-        <main style="width: 100%; padding: 2rem;">
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
           {{ content }}
           <footer class="site-footer">
             {% include footer.html %}
