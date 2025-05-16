@@ -3,7 +3,7 @@ layout: post
 title:  "Touch ID Macropad Mod"
 date:   2025-02-13 00:00:00 -0000
 author: "Logan Foster"
-categories: Posts
+categories: Projects
 permalink: /macropad
 ---
 
