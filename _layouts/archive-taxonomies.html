@@ -70,7 +70,11 @@ layout: page
 
       
       <ul class="post-list-by-taxonomy">
-        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+
+
         {%- for post in posts -%}
           {%- if taxonomy_name == 'Projects' -%}
               <li>
@@ -86,46 +90,61 @@ layout: page
                   {%- if post.model -%}
                     {% assign unique_id = "three-container-" | append: forloop.index %}
                     <div class="three-image">
-                      <div id="{{ unique_id }}" class="three-container" data-obj-path="/models/myModel.obj"></div>
+                      <div id="{{ unique_id }}"></div>
                     </div>
+                    <div id="three-container" class="three-container" data-obj-path="/assets/models/Macropad_TouchID v8.obj"></div>
                     <script>
                       (function() {
-                        const container = document.getElementById('{{ unique_id }}');
-                        const contentDiv = document.querySelector('.wrapper');
-                        const width = contentDiv.getBoundingClientRect().width;
+                        const container = document.getElementById('three-container');
+                        const width = container.offsetWidth;
                         const height = width * 2 / 3;
-                    
+                      
                         const scene = new THREE.Scene();
                         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-                        const renderer = new THREE.WebGLRenderer({ antialias: true });
+                        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                         renderer.setSize(width, height);
                         container.appendChild(renderer.domElement);
-                    
-                        const geometry = new THREE.BoxGeometry();
-                        const material = new THREE.MeshBasicMaterial({ color: 0x0077ff });
-                        const cube = new THREE.Mesh(geometry, material);
-                        scene.add(cube);
+                      
+                        // Lighting
+                        const ambient = new THREE.AmbientLight(0xffffff, 0.8);
+                        const directional = new THREE.DirectionalLight(0xffffff, 1);
+                        directional.position.set(1, 1, 1);
+                        scene.add(ambient);
+                        scene.add(directional);
+                      
+                        // Controls
+                        controls = new THREE.OrbitControls(camera, renderer.domElement);
+                        controls.enableDamping = true;
+                      
+                        // Load .obj model
+                        const objPath = container.dataset.objPath;
+                        const loader = new THREE.OBJLoader();
+                        loader.load(objPath, function (object) {
+                          object.scale.set(1, 1, 1);
+                          scene.add(object);
+                        }, undefined, function (error) {
+                          console.error('OBJ Load Error:', error);
+                        });
+                      
                         camera.position.z = 5;
-                    
+                      
                         function animate() {
                           requestAnimationFrame(animate);
-                          cube.rotation.y += 0.01;
+                          controls.update();
                           renderer.render(scene, camera);
                         }
-
+                      
                         window.addEventListener('resize', () => {
-                          const contentDiv = document.querySelector('.wrapper');
-                          const width = contentDiv.clientWidth;
-                          const height = width * 2 / 3;
-
-                          camera.aspect = width / height;
+                          const newWidth = container.clientWidth;
+                          const newHeight = newWidth * 2 / 3;
+                          camera.aspect = newWidth / newHeight;
                           camera.updateProjectionMatrix();
-                          renderer.setSize(width, height);
+                          renderer.setSize(newWidth, newHeight);
                         });
-                        
+                      
                         animate();
                       })();
-                    </script>
+                      </script>        
                   
                   {%- endif -%}
                 {%- endif -%}
@@ -151,6 +170,12 @@ layout: page
   width: 80%;                /* or any fixed width like 600px */
   max-width: 800px;
   height: auto;
+}
+
+.three-container {
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 
