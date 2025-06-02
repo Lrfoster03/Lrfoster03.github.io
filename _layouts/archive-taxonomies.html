@@ -59,15 +59,78 @@ layout: page
       <h2 id="{{ slugified_taxonomy_name }}">
         {%- if page.type == 'tags' -%}
           {{ slugified_taxonomy_name }}
+          <p>This is a test</p>
         {%- else -%}
-          {{ taxonomy_name }}
+          {%- if taxonomy_name == 'Projects' -%}
+            {{ taxonomy_name }}
+          {%- endif -%}
         {%- endif -%}
       </h2>
+
+
+      
       <ul class="post-list-by-taxonomy">
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
         {%- for post in posts -%}
-          <li>
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> &raquo; <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </li>
+          {%- if taxonomy_name == 'Projects' -%}
+              <li>
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> &raquo; <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                {%- if post.show_excerpts != false -%}
+                  <div class="post-excerpt">{{ post.excerpt | strip_html }}</div>
+                  <br>
+                  {%- if post.image -%}
+                    <div class="post-image">
+                      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
+                    </div>
+                  {%- endif -%}
+                  {%- if post.model -%}
+                    {% assign unique_id = "three-container-" | append: forloop.index %}
+                    <div class="three-image">
+                      <div id="{{ unique_id }}" class="three-container" data-obj-path="/models/myModel.obj"></div>
+                    </div>
+                    <script>
+                      (function() {
+                        const container = document.getElementById('{{ unique_id }}');
+                        const contentDiv = document.querySelector('.wrapper');
+                        const width = contentDiv.getBoundingClientRect().width;
+                        const height = width * 2 / 3;
+                    
+                        const scene = new THREE.Scene();
+                        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                        const renderer = new THREE.WebGLRenderer({ antialias: true });
+                        renderer.setSize(width, height);
+                        container.appendChild(renderer.domElement);
+                    
+                        const geometry = new THREE.BoxGeometry();
+                        const material = new THREE.MeshBasicMaterial({ color: 0x0077ff });
+                        const cube = new THREE.Mesh(geometry, material);
+                        scene.add(cube);
+                        camera.position.z = 5;
+                    
+                        function animate() {
+                          requestAnimationFrame(animate);
+                          cube.rotation.y += 0.01;
+                          renderer.render(scene, camera);
+                        }
+
+                        window.addEventListener('resize', () => {
+                          const contentDiv = document.querySelector('.wrapper');
+                          const width = contentDiv.clientWidth;
+                          const height = width * 2 / 3;
+
+                          camera.aspect = width / height;
+                          camera.updateProjectionMatrix();
+                          renderer.setSize(width, height);
+                        });
+                        
+                        animate();
+                      })();
+                    </script>
+                  
+                  {%- endif -%}
+                {%- endif -%}
+              </li>
+          {%- endif -%}
         {%- endfor -%}
       </ul>
       <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a>
@@ -81,3 +144,20 @@ layout: page
     main.scrollTop = 0;
   }
 </script>
+
+<style>
+  .three-image {
+  display: block;
+  width: 80%;                /* or any fixed width like 600px */
+  max-width: 800px;
+  height: auto;
+}
+
+
+.three-image canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+</style>
