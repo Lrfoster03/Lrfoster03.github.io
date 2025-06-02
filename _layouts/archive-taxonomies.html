@@ -92,15 +92,16 @@ layout: page
                     <div class="three-image">
                       <div id="{{ unique_id }}"></div>
                     </div>
-                    <div id="three-container" class="three-container" data-obj-path="/assets/models/Macropad_TouchID v8.obj"></div>
+                    <div id="three-container" class="three-container" data-obj-path="{{ post.model | relative_url }}"></div>
                     <script>
                       (function() {
                         const container = document.getElementById('three-container');
-                        const width = container.offsetWidth;
+                        const contentDiv = document.querySelector('.wrapper');
+                        const width = contentDiv.getBoundingClientRect().width;
                         const height = width * 2 / 3;
                       
                         const scene = new THREE.Scene();
-                        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                        const camera = new THREE.PerspectiveCamera(75, width / height, 10, 100);
                         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                         renderer.setSize(width, height);
                         container.appendChild(renderer.domElement);
@@ -126,7 +127,8 @@ layout: page
                           console.error('OBJ Load Error:', error);
                         });
                       
-                        camera.position.z = 5;
+                        camera.position.z = 2;
+                        camera.position.x = 12;
                       
                         function animate() {
                           requestAnimationFrame(animate);
@@ -135,7 +137,7 @@ layout: page
                         }
                       
                         window.addEventListener('resize', () => {
-                          const newWidth = container.clientWidth;
+                          const newWidth = contentDiv.getBoundingClientRect().width;
                           const newHeight = newWidth * 2 / 3;
                           camera.aspect = newWidth / newHeight;
                           camera.updateProjectionMatrix();
