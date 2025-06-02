@@ -89,13 +89,10 @@ layout: page
                   {%- endif -%}
                   {%- if post.model -%}
                     {% assign unique_id = "three-container-" | append: forloop.index %}
-                    <div class="three-image">
-                      <div id="{{ unique_id }}"></div>
-                    </div>
-                    <div id="three-container" class="three-container" data-obj-path="{{ post.model | relative_url }}"></div>
+                    <div class="three-image three-container" id="{{ unique_id }}" data-obj-path="{{ post.model | relative_url }}"></div>              
                     <script>
                       (function() {
-                        const container = document.getElementById('three-container');
+                        const container = document.getElementById('{{ unique_id }}');
                         const contentDiv = document.querySelector('.wrapper');
                         const width = contentDiv.getBoundingClientRect().width;
                         const height = width * 2 / 3;
@@ -169,13 +166,12 @@ layout: page
 <style>
   .three-image {
   display: block;
-  width: 80%;                /* or any fixed width like 600px */
-  max-width: 800px;
+  width: 100%;
   height: auto;
 }
 
 .three-container {
-  background-color: #111;
+  background-color: #cac5c585;
   border-radius: 8px;
   overflow: hidden;
 }
