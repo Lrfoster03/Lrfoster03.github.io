@@ -5,7 +5,7 @@ layout: page
 {{ content }}
 
 {% comment %} Check the type of archive {% endcomment %}
-{%- if page.type == 'categories' -%}
+{%- if page.type == 'projects' -%}
   {%- assign taxonomies = site.categories -%}
 {%- elsif page.type == 'tags' -%}
   {%- assign taxonomies = site.tags -%}
