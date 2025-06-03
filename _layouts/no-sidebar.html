@@ -5,6 +5,21 @@
 
     {% seo %}
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | escape }}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title | escape }}">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | escape }}">
+    <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  </head>
+
 
   </head>
 
