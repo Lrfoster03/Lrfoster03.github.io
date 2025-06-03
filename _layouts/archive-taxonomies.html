@@ -22,7 +22,7 @@ layout: page
   {%- endif -%}
 {%- endfor -%}
 
-<div class="taxonomies-wrapper">
+<!-- <div class="taxonomies-wrapper">
   <ul class="taxonomies">
     {%- for i in (1..max_count) reversed -%}
       {%- for taxonomy in taxonomies -%}
@@ -47,7 +47,7 @@ layout: page
       {%- endfor -%}
     {%- endfor -%}
   </ul>
-</div>
+</div> -->
 
 {% comment %} Show posts by taxonomy {% endcomment %}
 {%- for i in (1..max_count) reversed -%}
@@ -73,7 +73,8 @@ layout: page
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
-
+        <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+        <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
 
         {%- for post in posts -%}
           {%- if taxonomy_name == 'Projects' -%}
@@ -91,60 +92,10 @@ layout: page
                     {% assign unique_id = "three-container-" | append: forloop.index %}
                     <div class="three-image three-container" id="{{ unique_id }}" data-obj-path="{{ post.model | relative_url }}"></div>              
                     <script>
-                      (function() {
-                        const container = document.getElementById('{{ unique_id }}');
-                        const contentDiv = document.querySelector('.wrapper');
-                        const width = contentDiv.getBoundingClientRect().width;
-                        const height = width * 2 / 3;
-                      
-                        const scene = new THREE.Scene();
-                        const camera = new THREE.PerspectiveCamera(75, width / height, 10, 100);
-                        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-                        renderer.setSize(width, height);
-                        container.appendChild(renderer.domElement);
-                      
-                        // Lighting
-                        const ambient = new THREE.AmbientLight(0xffffff, 0.8);
-                        const directional = new THREE.DirectionalLight(0xffffff, 1);
-                        directional.position.set(1, 1, 1);
-                        scene.add(ambient);
-                        scene.add(directional);
-                      
-                        // Controls
-                        controls = new THREE.OrbitControls(camera, renderer.domElement);
-                        controls.enableDamping = true;
-                      
-                        // Load .obj model
-                        const objPath = container.dataset.objPath;
-                        const loader = new THREE.OBJLoader();
-                        loader.load(objPath, function (object) {
-                          object.scale.set(1, 1, 1);
-                          scene.add(object);
-                        }, undefined, function (error) {
-                          console.error('OBJ Load Error:', error);
-                        });
-                      
-                        camera.position.z = 2;
-                        camera.position.x = 12;
-                      
-                        function animate() {
-                          requestAnimationFrame(animate);
-                          controls.update();
-                          renderer.render(scene, camera);
-                        }
-                      
-                        window.addEventListener('resize', () => {
-                          const newWidth = contentDiv.getBoundingClientRect().width;
-                          const newHeight = newWidth * 2 / 3;
-                          camera.aspect = newWidth / newHeight;
-                          camera.updateProjectionMatrix();
-                          renderer.setSize(newWidth, newHeight);
-                        });
-                      
-                        animate();
-                      })();
-                      </script>        
-                  
+                      document.addEventListener("DOMContentLoaded", function () {
+                        initializeThreeModelViewer('{{ unique_id }}', '{{ post.model | relative_url }}');
+                      });
+                    </script>
                   {%- endif -%}
                 {%- endif -%}
               </li>
@@ -162,25 +113,3 @@ layout: page
     main.scrollTop = 0;
   }
 </script>
-
-<style>
-  .three-image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.three-container {
-  background-color: #cac5c585;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-
-.three-image canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-</style>
