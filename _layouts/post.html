@@ -6,6 +6,13 @@ layout: no-sidebar
 
   <header class="post-header">
 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
+
+
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
@@ -32,6 +39,14 @@ layout: no-sidebar
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
+    {% if page.model %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeThreeModelViewer("three-post-model", "{{ page.model | relative_url }}");
+      });
+    </script>
+    {% endif %}
+
   </div>
 
   <footer class="post-footer">
