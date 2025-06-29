@@ -1,18 +1,21 @@
 ---
 layout: page
-title: Rhythm of War Progress Bar
-Log_Page_Count: 509
-Max_Page_Count: 440
-pageTotal: 1219
+title: Reading Progress Bar
+book1_page_count: 476
+book2_page_count: 13
+book1_page_total: 1329
+book2_page_total: 264
 ---
 
-<h1>Rhythm of War Progress Bar</h1>
+<h1>Reading Progress Bar</h1>
 
-<p>Logan and Max are reading "Rhythm of War". This page shows their progress in the book. (Also known as the countdown meter until we can read Wind and Truth)</p>
+<p>I have set a goal for myself to read 20 books in 2025, this is documentation of my progress and what I'm currently reading:</p>
+
 
 <div class="progress-section">
-  <h2>Logan's Progress</h2>
-  {% assign progress1 = page.Log_Page_Count | times: 100 | divided_by: page.pageTotal %}
+  <h2>Wind and Truth</h2>
+  <!--                   Current Page Number  |            |     Total Page Number   -->
+  {% assign progress1 = page.book1_page_count | times: 100 | divided_by: page.book1_page_total %}
     <div class="progress-container">
         {% if progress1 >= 100 %}
         <div class="progress-barFinished" style="width: {{ progress1 }}%;">
@@ -26,9 +29,11 @@ pageTotal: 1219
     </div>
 </div>
 
+
 <div class="progress-section">
-  <h2>Max's Progress</h2>
-  {% assign progress2 = page.Max_Page_Count | times: 100 | divided_by: page.pageTotal %}
+  <h2>Atomic Habits</h2>
+  <!--                   Current Page Number  |            |     Total Page Number   -->
+  {% assign progress2 = page.book2_page_count | times: 100 | divided_by: page.book2_page_total %}
   <div class="progress-container">
     {% if progress2 >= 100 %}
     <div class="progress-barFinished" style="width: {{ progress2 | default: 0 }}%;">
@@ -40,7 +45,7 @@ pageTotal: 1219
     </div>
     {% endif %}
   </div>
-</div>
+</div> 
 
 <header class="post-header"></header>
 
@@ -93,6 +98,15 @@ pageTotal: 1219
 
   <div class="progress-section">
     <h2>Dawnshard</h2>
+    <div class="progress-container">
+      <div class="progress-barFinished" style="width: {{ 100 }}%;">
+        {{ 100 }}%
+      </div>
+    </div>
+  </div>
+
+    <div class="progress-section">
+    <h2>Rhythm of War</h2>
     <div class="progress-container">
       <div class="progress-barFinished" style="width: {{ 100 }}%;">
         {{ 100 }}%
