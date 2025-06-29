@@ -59,7 +59,6 @@ layout: page
       <h2 id="{{ slugified_taxonomy_name }}">
         {%- if page.type == 'tags' -%}
           {{ slugified_taxonomy_name }}
-          <p>This is a test</p>
         {%- else -%}
           {%- if taxonomy_name == 'Projects' -%}
             {{ taxonomy_name }}
@@ -67,16 +66,24 @@ layout: page
         {%- endif -%}
       </h2>
 
+  {%- assign blog_projects = site.posts -%}
+  {%- assign project_entries = site.project -%}
+  {%- assign combined_projects = blog_projects | concat: project_entries -%}
+  {%- assign sorted_projects = combined_projects | sort: "date" | reverse -%}
 
       
       <ul class="post-list-by-taxonomy">
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/GLTFLoader.js"></script>
         <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+        
+        
         <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
 
-        {%- for post in posts -%}
+        {%- for post in sorted_projects -%}
           {%- if taxonomy_name == 'Projects' -%}
               <li>
                 <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> &raquo; <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
