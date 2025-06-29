@@ -5,20 +5,20 @@ function initializeThreeModelViewer(containerId, objPath) {
   const contentDiv = document.querySelector('.wrapper');
   const width = contentDiv.getBoundingClientRect().width;
   const height = width * 2 / 3;
-
+  // Set OrbitControls target to the center of the model
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, width / height, 10, 100);
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 100);
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(width, height);
   container.appendChild(renderer.domElement);
-
+  
   // Lighting
   const ambient = new THREE.AmbientLight(0xffffff, 0.8);
   const directional = new THREE.DirectionalLight(0xffffff, 1);
   directional.position.set(1, 1, 1);
   scene.add(ambient);
   scene.add(directional);
-
+  
   // Controls
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
@@ -27,6 +27,14 @@ function initializeThreeModelViewer(containerId, objPath) {
   const loader = new THREE.OBJLoader();
   loader.load(objPath, function (object) {
     object.scale.set(1, 1, 1);
+    // Compute bounding box to find center
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+    // Re-center the model
+    object.position.sub(center);
+    // Set OrbitControls target to model center
+    controls.target.copy(new THREE.Vector3(0, 0, 0));
+    controls.update();
     scene.add(object);
   }, undefined, function (error) {
     console.error('OBJ Load Error:', error);
@@ -37,7 +45,7 @@ function initializeThreeModelViewer(containerId, objPath) {
 
   function animate() {
     requestAnimationFrame(animate);
-    controls.update();
+    controls.update(); 
     renderer.render(scene, camera);
   }
 

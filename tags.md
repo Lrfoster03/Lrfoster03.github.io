@@ -1,5 +1,5 @@
 ---
-layout: archive-taxonomies
+layout: projects
 type: tags
 title: Tags
 permalink: /tags/
