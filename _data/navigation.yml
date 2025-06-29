@@ -6,5 +6,7 @@
 #   url: /tags/
 - title: More
   sublinks:
+    - title: Reading Progress
+      url: /progress/
     - title: Docs
       url: /docs/
