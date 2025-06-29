@@ -1,0 +1,18 @@
+.three-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.three-container {
+  background-color: #cac5c585;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.three-image canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}

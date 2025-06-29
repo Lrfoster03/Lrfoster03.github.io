@@ -4,9 +4,9 @@ title:  "Custom QMK PCB Firmware"
 date:   2024-2-09 00:00:00 -0000
 author: "Logan Foster"
 categories: Projects
+image: /assets/images/compensator/Compensator-side.png
 permalink: /qmk-firmware
 ---
-
 
 So, over the past few years you could say that I've gotten into the realm of custom mechanical keyboards. I guess you could say I've gotten a lot into the realm of custom mechanical keyboards. So much so, that when my friend asked me to help him write the firmware for the specialized keyboard and PCB he was designing, I couldn't hesitate at the opportunity.
 

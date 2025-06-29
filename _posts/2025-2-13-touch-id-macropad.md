@@ -4,6 +4,7 @@ title:  "Touch ID Macropad Mod"
 date:   2025-02-13 00:00:00 -0000
 author: "Logan Foster"
 categories: Projects
+model: /assets/models/Macropad_TouchID v8.obj
 permalink: /macropad
 ---
 
@@ -56,3 +57,5 @@ I'm really happy with how this project turned out. It was a fun challenge to see
 <img width="1109" title="The final design in use" alt="The final design in use" src="/assets/images/grid 100_files/GridWorking.jpg">
 
 If you too want to recreate this project, can download them them [here]({{ site.url }}/assets/downloads/Grid100 TouchID.zip). I hope you enjoy!
+
+<div class="three-image three-container" id="three-post-model" data-obj-path="{{ page.model | relative_url }}"></div>

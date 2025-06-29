@@ -5,7 +5,7 @@ layout: page
 {{ content }}
 
 {% comment %} Check the type of archive {% endcomment %}
-{%- if page.type == 'categories' -%}
+{%- if page.type == 'projects' -%}
   {%- assign taxonomies = site.categories -%}
 {%- elsif page.type == 'tags' -%}
   {%- assign taxonomies = site.tags -%}
@@ -22,7 +22,7 @@ layout: page
   {%- endif -%}
 {%- endfor -%}
 
-<div class="taxonomies-wrapper">
+<!-- <div class="taxonomies-wrapper">
   <ul class="taxonomies">
     {%- for i in (1..max_count) reversed -%}
       {%- for taxonomy in taxonomies -%}
@@ -47,7 +47,7 @@ layout: page
       {%- endfor -%}
     {%- endfor -%}
   </ul>
-</div>
+</div> -->
 
 {% comment %} Show posts by taxonomy {% endcomment %}
 {%- for i in (1..max_count) reversed -%}
@@ -59,15 +59,47 @@ layout: page
       <h2 id="{{ slugified_taxonomy_name }}">
         {%- if page.type == 'tags' -%}
           {{ slugified_taxonomy_name }}
+          <p>This is a test</p>
         {%- else -%}
-          {{ taxonomy_name }}
+          {%- if taxonomy_name == 'Projects' -%}
+            {{ taxonomy_name }}
+          {%- endif -%}
         {%- endif -%}
       </h2>
+
+
+      
       <ul class="post-list-by-taxonomy">
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+        <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+        <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
+
         {%- for post in posts -%}
-          <li>
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> &raquo; <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </li>
+          {%- if taxonomy_name == 'Projects' -%}
+              <li>
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> &raquo; <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                {%- if post.show_excerpts != false -%}
+                  <div class="post-excerpt">{{ post.excerpt | strip_html }}</div>
+                  <br>
+                  {%- if post.image -%}
+                    <div class="post-image">
+                      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
+                    </div>
+                  {%- endif -%}
+                  {%- if post.model -%}
+                    {% assign unique_id = "three-container-" | append: forloop.index %}
+                    <div class="three-image three-container" id="{{ unique_id }}" data-obj-path="{{ post.model | relative_url }}"></div>              
+                    <script>
+                      document.addEventListener("DOMContentLoaded", function () {
+                        initializeThreeModelViewer('{{ unique_id }}', '{{ post.model | relative_url }}');
+                      });
+                    </script>
+                  {%- endif -%}
+                {%- endif -%}
+              </li>
+          {%- endif -%}
         {%- endfor -%}
       </ul>
       <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a>
