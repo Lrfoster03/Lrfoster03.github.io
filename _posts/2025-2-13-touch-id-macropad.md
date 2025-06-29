@@ -4,7 +4,7 @@ title:  "Touch ID Macropad Mod"
 date:   2025-02-13 00:00:00 -0000
 author: "Logan Foster"
 categories: Projects
-model: /assets/models/Macropad_TouchID v8.obj
+model: "/assets/models/Macropad_TouchID v8.obj"
 permalink: /macropad
 ---
 

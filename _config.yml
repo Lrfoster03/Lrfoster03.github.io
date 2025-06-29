@@ -37,6 +37,13 @@ jekyll_auth:
     - drafts?
 
 
+# Recognize Projects as a collection
+collections:
+  project:
+    output: true
+    permalink: /projects/:title/
+
+
 # Jekyll
 # ======
 exclude:
