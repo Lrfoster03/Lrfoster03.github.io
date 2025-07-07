@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Reading Progress Bar
-book1_page_count: 476
+book1_page_count: 13
 book2_page_count: 13
-book1_page_total: 1329
+book1_page_total: 447
 book2_page_total: 264
 ---
 
@@ -13,7 +13,7 @@ book2_page_total: 264
 
 
 <div class="progress-section">
-  <h2>Wind and Truth</h2>
+  <h2>The Sunlit Man</h2>
   <!--                   Current Page Number  |            |     Total Page Number   -->
   {% assign progress1 = page.book1_page_count | times: 100 | divided_by: page.book1_page_total %}
     <div class="progress-container">
@@ -107,6 +107,15 @@ book2_page_total: 264
 
     <div class="progress-section">
     <h2>Rhythm of War</h2>
+    <div class="progress-container">
+      <div class="progress-barFinished" style="width: {{ 100 }}%;">
+        {{ 100 }}%
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <h2>Wind and Truth</h2>
     <div class="progress-container">
       <div class="progress-barFinished" style="width: {{ 100 }}%;">
         {{ 100 }}%
