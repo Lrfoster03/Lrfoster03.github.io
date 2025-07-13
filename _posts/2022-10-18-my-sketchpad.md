@@ -8,7 +8,7 @@ permalink: /sketchpad
 ---
 
 
-This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. If you want to take a look at it, you can find it [here](https://lrfoster03-graph-theory-sketchpad.github.io/Lrfoster03-Graph-Theory-Sketchpad/){:target="_blank"}.
+This was a Sketchpad web application that I created based on the Facebook / Meta react framework. It is heavily reliant on said framework as well as some open source react imports. If you want to take a look at it, you can find it [here](https://www.logoas.xyz/Graph-Theory-Sketchpad/){:target="_blank"}.
 
 **<u>Implementation:</u>**
 
