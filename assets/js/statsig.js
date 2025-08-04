@@ -45,15 +45,12 @@ async function initializeStatsig(page_title) {
     let ip = '';
     try {
         console.log('Initializing Statsig');
-        
-        // Initialize in local mode - this won't make network requests
-        const isProduction = (typeof JEKYLL_ENV !== 'undefined' && JEKYLL_ENV === 'production');
 
         await statsig.initialize(
             'client-yt8ZTsabx4SergArwGrJwLMpXYxaWG2nHstUosOBjVa',
             { userID: 'WebsiteUser' },
             {
-                environment: { tier: isProduction ? 'production' : 'development' }
+                environment: { tier: window.JEKYLL_ENV }
             }
         );
         
