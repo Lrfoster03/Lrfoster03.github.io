@@ -6,13 +6,19 @@
 
 {% feed_meta %}
 
-{% if jekyll.environment == 'production' and site.google_analytics %}
-  {% include analytics.html %}
-{% endif %}
-
 {% if page.math %}
   {% include mathjax.html %}
 {% endif %}
+
+
+<!-- Statsig SDK -->
+<script src="https://cdn.jsdelivr.net/npm/statsig-js@4.39.0/build/statsig-prod-web-sdk.min.js"></script>
+<script src="{{ '/assets/js/statsig.js' | relative_url }}"></script>
+
+<script>
+  initializeStatsig("{{ page.title | escape }}");
+</script>
+
 
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
@@ -20,17 +26,16 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/skin.css' | relative_url }}">
 
-    <!-- three.js imports -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/GLTFLoader.js"></script>
+<!-- three.js imports -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/GLTFLoader.js"></script>
 
-    <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
-    <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
+<script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+<link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
 
 <!-- Begin selecting skin -->
-
 <script>
   let filename = "";
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
