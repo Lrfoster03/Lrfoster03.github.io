@@ -1,42 +1,51 @@
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-{% seo %}
+{% seo %} {% feed_meta %} {% if page.math %} {% include mathjax.html %} {% endif
+%}
 
-{% feed_meta %}
-
-{% if jekyll.environment == 'production' and site.google_analytics %}
-  {% include analytics.html %}
-{% endif %}
-
-{% if page.math %}
-  {% include mathjax.html %}
-{% endif %}
-
-<!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
-
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/skin.css' | relative_url }}">
-
-    <!-- three.js imports -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/GLTFLoader.js"></script>
-
-    <script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
-    <link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}">
-
-<!-- Begin selecting skin -->
+<!-- Statsig SDK -->
+<script src="https://cdn.jsdelivr.net/npm/statsig-js@4.39.0/build/statsig-prod-web-sdk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey={{ site.environment_variables.STATSIG_CLIENT_SDK_KEY }}"></script>
+<script src="{{ '/assets/js/statsig.js' | relative_url }}"></script>
 
 <script>
+  window.JEKYLL_ENV = "{{ jekyll.environment }}";
+  window.STATSIG_CLIENT_KEY = "{{site.env.STATSIG_CLIENT_SDK_KEY}}";
+</script>
+
+<script>
+  initializeStatsig("{{ page.title | escape }}");
+</script>
+
+<!-- Google Fonts -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng"
+/>
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/skin.css' | relative_url }}" />
+
+<!-- three.js imports -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/OBJLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script src="{{ '/assets/js/three-model-viewer.js' | relative_url }}"></script>
+<link rel="stylesheet" href="{{'/assets/css/three.css' | relative_url }}" />
+
+<!-- Begin selecting skin -->
+<script>
   let filename = "";
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
     filename = "{{ '/assets/css/skin-midnight.css' | relative_url }}";
-  }
-  else {
+  } else {
     filename = "{{ '/assets/css/skin-daylight.css' | relative_url }}";
   }
   // const hour = (new Date()).getHours();
@@ -57,6 +66,9 @@
 </script>
 <!-- End selecting skin -->
 
-<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+<script
+  async
+  src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"
+></script>
 
 {% include custom-head.html %}

@@ -3,14 +3,16 @@
 source "https://rubygems.org"
 # gemspec
 
+gem "jekyll", "~> 4.3.1"
+gem "webrick", "~> 1.8"
+gem "csv"
+gem "logger"
 gem 'jekyll-auth'
-gem "webrick", "~> 1.7"
 gem 'jekyll-seo-tag'
 gem 'jekyll-feed'
 gem 'jekyll-sitemap'
 gem 'jekyll-paginate'
 gem 'faraday-retry'
 gem "rake"
-# ruby "3.1.2"
-# gem 'jekyll-theme-hamilton'
-# gem 'jekyll-remote-theme'
+gem "dotenv"
+gem 'jekyll-environment-variables', group: :jekyll_plugins

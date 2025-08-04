@@ -8,5 +8,9 @@
   sublinks:
     - title: Reading Progress
       url: /progress/
+    - title: Bounce
+      url: /bounce/
+    - title: Status
+      url: /status/
     - title: Docs
       url: /docs/
