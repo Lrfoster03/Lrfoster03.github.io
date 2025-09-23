@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Reading Progress Bar
-book1_page_count: 13
+book1_page_count: 128
 book2_page_count: 13
 book1_page_total: 447
 book2_page_total: 264
@@ -9,34 +9,40 @@ book2_page_total: 264
 
 <h1>Reading Progress Bar</h1>
 
-<p>I have set a goal for myself to read 20 books in 2025, this is documentation of my progress and what I'm currently reading:</p>
-
+<p>
+  I have set a goal for myself to read 20 books in 2025, this is documentation
+  of my progress and what I'm currently reading:
+</p>
 
 <div class="progress-section">
   <h2>The Sunlit Man</h2>
   <!--                   Current Page Number  |            |     Total Page Number   -->
-  {% assign progress1 = page.book1_page_count | times: 100 | divided_by: page.book1_page_total %}
-    <div class="progress-container">
-        {% if progress1 >= 100 %}
-        <div class="progress-barFinished" style="width: {{ progress1 }}%;">
-        {{ progress1 }}%
-        </div>
-        {% else %}
-        <div class="progress-barLog" style="width: {{ progress1 | default: 0 }}%;">
-        {{ progress1 }}%
-        </div>
-        {% endif %}
+  {% assign progress1 = page.book1_page_count | times: 100 | divided_by:
+  page.book1_page_total %}
+  <div class="progress-container">
+    {% if progress1 >= 100 %}
+    <div class="progress-barFinished" style="width: {{ progress1 }}%;">
+      {{ progress1 }}%
     </div>
+    {% else %}
+    <div class="progress-barLog" style="width: {{ progress1 | default: 0 }}%;">
+      {{ progress1 }}%
+    </div>
+    {% endif %}
+  </div>
 </div>
-
 
 <div class="progress-section">
   <h2>Atomic Habits</h2>
   <!--                   Current Page Number  |            |     Total Page Number   -->
-  {% assign progress2 = page.book2_page_count | times: 100 | divided_by: page.book2_page_total %}
+  {% assign progress2 = page.book2_page_count | times: 100 | divided_by:
+  page.book2_page_total %}
   <div class="progress-container">
     {% if progress2 >= 100 %}
-    <div class="progress-barFinished" style="width: {{ progress2 | default: 0 }}%;">
+    <div
+      class="progress-barFinished"
+      style="width: {{ progress2 | default: 0 }}%;"
+    >
       {{ progress2 }}%
     </div>
     {% else %}
@@ -45,83 +51,83 @@ book2_page_total: 264
     </div>
     {% endif %}
   </div>
-</div> 
+</div>
 
 <header class="post-header"></header>
 
 <h1>Finished Books in 2025</h1>
 
 <div class="progress-section">
-    <h2>The Way of Kings</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+  <h2>The Way of Kings</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Words of Radiance</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Words of Radiance</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Edgedancer</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Edgedancer</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Warbreaker</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Warbreaker</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Oathbringer</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Oathbringer</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Dawnshard</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Dawnshard</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-    <div class="progress-section">
-    <h2>Rhythm of War</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Rhythm of War</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
-  <div class="progress-section">
-    <h2>Wind and Truth</h2>
-    <div class="progress-container">
-      <div class="progress-barFinished" style="width: {{ 100 }}%;">
-        {{ 100 }}%
-      </div>
+<div class="progress-section">
+  <h2>Wind and Truth</h2>
+  <div class="progress-container">
+    <div class="progress-barFinished" style="width: {{ 100 }}%;">
+      {{ 100 }}%
     </div>
   </div>
+</div>
 
 <style>
   .progress-container {
