@@ -13,29 +13,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # 2. Setup Ruby environment
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: bundle install
 
-      - name: Inject Statsig key into _config.yml
+      # 4. Inject Statsig key into _config.yml
+      - name: Inject Statsig key
         run: |
           echo "statsig_client_sdk_key: '${{ secrets.STATSIG_CLIENT_SDK_KEY }}'" >> _config.yml
 
-      - name: Build site with Jekyll
+      # 5. Build Jekyll site
+      - name: Build site
         env:
           JEKYLL_ENV: production
+          STATSIG_CLIENT_SDK_KEY: ${{ secrets.STATSIG_CLIENT_SDK_KEY }}
         run: bundle exec jekyll build -d _site
 
-      - name: Deploy to gh-pages
+      # 6. Deploy to gh-pages branch
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: gh-pages
+          force_orphan: true # ensures old content is cleared before publishing
