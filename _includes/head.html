@@ -19,6 +19,21 @@
   initializeStatsig("{{ page.title | escape }}");
 </script>
 
+
+<!-- Statsig SDK -->
+<script src="https://cdn.jsdelivr.net/npm/statsig-js@4.39.0/build/statsig-prod-web-sdk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-yt8ZTsabx4SergArwGrJwLMpXYxaWG2nHstUosOBjVa"></script>
+<script src="{{ '/assets/js/statsig.js' | relative_url }}"></script>
+
+<script>
+  window.JEKYLL_ENV = "{{ jekyll.environment }}";
+</script>
+
+<script>
+  initializeStatsig("{{ page.title | escape }}");
+</script>
+
+
 <!-- Google Fonts -->
 <link
   rel="stylesheet"
