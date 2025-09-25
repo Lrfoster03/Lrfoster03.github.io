@@ -14,7 +14,5 @@ gem 'jekyll-sitemap'
 gem 'jekyll-paginate'
 gem 'faraday-retry'
 gem "rake"
-gem 'jekyll-dotenv'
-# ruby "3.4.5"
-# gem 'jekyll-theme-hamilton'
-# gem 'jekyll-remote-theme'
+gem "dotenv"
+gem 'jekyll-environment-variables', group: :jekyll_plugins
