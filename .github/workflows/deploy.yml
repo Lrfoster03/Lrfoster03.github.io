@@ -4,14 +4,13 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -27,31 +26,27 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Create temporary config with secrets
+      - name: Create temporary .env file
         run: |
-          # Create a temporary config file with the secret
-          cat > _config_secrets.yml << EOF
-          env:
-            STATSIG_CLIENT_SDK_KEY: '${{ secrets.STATSIG_CLIENT_SDK_KEY }}'
+          cat > .env << EOF
+          STATSIG_CLIENT_SDK_KEY=${{ secrets.STATSIG_CLIENT_SDK_KEY }}
+          JEKYLL_ENV=production
           EOF
 
       - name: Build with Jekyll
         run: |
           bundle exec jekyll build \
             --baseurl "${{ steps.pages.outputs.base_path }}" \
-            --config "_config.yml,_config_secrets.yml" \
             --destination ./_site
-        env:
-          JEKYLL_ENV: production
 
-      - name: Clean up temporary config
-        run: rm -f _config_secrets.yml
+      - name: Clean up temporary .env
+        run: rm -f .env
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
