@@ -32,18 +32,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Create temporary .env file
-        run: |
-          cat > .env << EOF
-          STATSIG_CLIENT_SDK_KEY=${{ secrets.STATSIG_CLIENT_SDK_KEY }}
-          JEKYLL_ENV=production
-          EOF
-
-      - name: Build with Jekyll
-        run: |
-          bundle exec jekyll build \
-            --baseurl "${{ steps.pages.outputs.base_path }}" \
-            --destination ./_site
+      - name: Build site with Jekyll
+        env:
+          JEKYLL_ENV: production
+          STATSIG_CLIENT_SDK_KEY: ${{ secrets.STATSIG_CLIENT_SDK_KEY }}
+        run: bundle exec jekyll build -d _site
 
       - name: Clean up temporary .env
         run: rm -f .env
@@ -61,5 +54,7 @@ jobs:
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
