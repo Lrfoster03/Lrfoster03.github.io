@@ -33,12 +33,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build site with Jekyll
-        run: |
-          echo "env:" > _config_build.yml
-          echo "  STATSIG_CLIENT_SDK_KEY: '${{ secrets.STATSIG_CLIENT_SDK_KEY }}'" >> _config_build.yml
-          bundle exec jekyll build \
-            --config "_config.yml,_config_build.yml" \
-            --destination ./_site
+        run: JEKYLL_ENV=production STATSIG_CLIENT_SDK_KEY="${{ secrets.STATSIG_CLIENT_SDK_KEY }}" bundle exec jekyll serve
 
       - name: Clean up temporary .env
         run: rm -f .env
