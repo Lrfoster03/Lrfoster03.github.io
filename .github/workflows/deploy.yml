@@ -33,10 +33,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build site with Jekyll
-        run: JEKYLL_ENV=production STATSIG_CLIENT_SDK_KEY="${{ secrets.STATSIG_CLIENT_SDK_KEY }}" bundle exec jekyll serve
-
-      - name: Clean up temporary .env
-        run: rm -f .env
+        run: JEKYLL_ENV=production STATSIG_CLIENT_SDK_KEY="${{ secrets.STATSIG_CLIENT_SDK_KEY }}" bundle exec jekyll build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
