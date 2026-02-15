@@ -52,6 +52,25 @@
   }
 }
 
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: calc(#{$spacing-unit / 2} + #{$base-font-size * 2.35});
+  line-height: 1;
+  font-size: $small-font-size;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid;
+  border-radius: 0.4em;
+  cursor: pointer;
+
+  @media screen and (min-width: $on-medium) {
+    position: static;
+    float: right;
+    margin-top: 12px;
+    margin-left: 12px;
+  }
+}
+
 .site-nav {
   position: absolute;
   top: 12px;

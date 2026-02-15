@@ -80,6 +80,16 @@ table {
   }
 }
 
+.theme-toggle {
+  color: $text-color;
+  background-color: $background-color;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: $border-color-light;
+  }
+}
+
 .site-nav {
   background-color: $background-color;
   border-color: $border-color;
