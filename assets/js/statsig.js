@@ -46,13 +46,51 @@ async function initializeStatsig(page_title) {
   try {
     console.log("Initializing Statsig");
 
-    await statsig.initialize(
-      window.STATSIG_CLIENT_KEY,
-      { userID: "WebsiteUser" },
-      {
-        environment: { tier: window.JEKYLL_ENV },
+    const baseUser = { userID: "WebsiteUser" };
+    const options = {
+      environment: { tier: window.JEKYLL_ENV },
+    };
+    let activeClient = null;
+    let stableID = null;
+
+    // Prefer the global singleton client from @statsig/js-client.
+    if (
+      window.StatsigClient &&
+      typeof window.StatsigClient.makeSingleton === "function"
+    ) {
+      activeClient = window.StatsigClient.makeSingleton(
+        window.STATSIG_CLIENT_KEY,
+        baseUser,
+        options
+      );
+      await activeClient.initializeAsync();
+      const context = activeClient.getContext();
+      stableID = context ? context.stableID : null;
+
+      if (
+        stableID &&
+        typeof activeClient.updateUserAsync === "function"
+      ) {
+        await activeClient.updateUserAsync({
+          ...baseUser,
+          customIDs: { stableID },
+        });
       }
-    );
+    } else {
+      await statsig.initialize(window.STATSIG_CLIENT_KEY, baseUser, options);
+      const context =
+        typeof statsig.getContext === "function" ? statsig.getContext() : null;
+      stableID = context ? context.stableID : null;
+
+      if (stableID && typeof statsig.updateUser === "function") {
+        await statsig.updateUser({
+          ...baseUser,
+          customIDs: { stableID },
+        });
+      }
+    }
+
+    console.log("Statsig StableID:", stableID);
 
     console.log("Analytics enabled");
 
@@ -75,10 +113,16 @@ async function initializeStatsig(page_title) {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
-    statsig.logEvent("Project Site Access", null, {
+    const logEvent =
+      activeClient && typeof activeClient.logEvent === "function"
+        ? activeClient.logEvent.bind(activeClient)
+        : statsig.logEvent.bind(statsig);
+
+    logEvent("Project Site Access", null, {
       ...browserInfo,
       ip_address: ip,
       page: page_title,
+      stable_id: stableID,
     });
 
     console.log("Successfully logged user access event");
