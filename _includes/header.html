@@ -19,6 +19,14 @@
   </a>
 
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-live="polite"
+  >
+    Light
+  </button>
 
   {% if site.data.navigation %}
     <nav class="site-nav">
@@ -52,3 +60,33 @@
     </nav>
   {% endif %}
 </div>
+
+<script>
+  (function () {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) {
+      return;
+    }
+
+    function syncThemeButton() {
+      const activeTheme =
+        typeof window.getSiteTheme === "function" ? window.getSiteTheme() : "light";
+      const nextTheme = activeTheme === "dark" ? "light" : "dark";
+
+      toggle.textContent = activeTheme === "dark" ? "Dark" : "Light";
+      toggle.setAttribute("aria-pressed", activeTheme === "dark" ? "true" : "false");
+      toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+      toggle.setAttribute("title", "Switch to " + nextTheme + " mode");
+    }
+
+    toggle.addEventListener("click", function () {
+      if (typeof window.toggleSiteTheme === "function") {
+        window.toggleSiteTheme();
+      }
+      syncThemeButton();
+    });
+
+    window.addEventListener("site-theme-changed", syncThemeButton);
+    syncThemeButton();
+  })();
+</script>
