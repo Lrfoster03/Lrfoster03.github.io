@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Site container
  */
@@ -26,7 +28,7 @@
 .site-sidebar-button {
   position: absolute;
   top: 3px;
-  left: $spacing-unit / 2;
+  left: math.div($spacing-unit, 2);
 
   img {
     width: $base-font-size * 2.5;
@@ -71,10 +73,29 @@
   }
 }
 
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: calc(#{math.div($spacing-unit, 2)} + #{$base-font-size * 2.35});
+  line-height: 1;
+  font-size: $base-font-size * 0.8;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid;
+  border-radius: 0.4em;
+  cursor: pointer;
+
+  @media screen and (min-width: $on-medium) {
+    position: static;
+    float: right;
+    margin-top: 12px;
+    margin-left: 12px;
+  }
+}
+
 .site-nav {
   position: absolute;
   top: 12px;
-  right: $spacing-unit / 2;
+  right: math.div($spacing-unit, 2);
   border: 1px solid;
   border-radius: 0.4em;
   text-align: right;
@@ -93,7 +114,7 @@
     svg {
       width: $base-font-size;
       height: $base-font-size;
-      padding-top: $base-font-size / 2;
+      padding-top: math.div($base-font-size, 2);
     }
   }
 
@@ -178,12 +199,12 @@
         display: inline-block;
         text-align: center;
         padding: 5px 5px;
+        margin-left: 10px;
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
           margin-right: 0;
         }
-        margin-left: 10px;
       }
 
       .dropdown-content a {
@@ -222,7 +243,7 @@
   @include relative-font-size(0.8);
 
   @include media-query($on-medium) {
-    padding: $spacing-unit / 2;
+    padding: math.div($spacing-unit, 2);
     @include relative-font-size(0.6);
   }
 
@@ -238,9 +259,9 @@
 }
 
 .sidebar-section {
-  padding-bottom: $spacing-unit / 2;
+  padding-bottom: math.div($spacing-unit, 2);
   border-bottom: 1px solid;
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: math.div($spacing-unit, 2);
 
   &:last-child {
     padding-bottom: 0;
@@ -351,8 +372,8 @@ ul.social-icons {
   padding-right: $spacing-unit;
 
   @include media-query($on-medium) {
-    padding-left: $spacing-unit / 2;
-    padding-right: $spacing-unit / 2;
+    padding-left: math.div($spacing-unit, 2);
+    padding-right: math.div($spacing-unit, 2);
   }
 
   @include media-query($on-small) {
@@ -380,8 +401,8 @@ ul.social-icons {
   list-style: none;
 
   li {
-    padding-top: $spacing-unit / 2;
-    padding-bottom: $spacing-unit / 2;
+    padding-top: math.div($spacing-unit, 2);
+    padding-bottom: math.div($spacing-unit, 2);
     border-bottom: 1px solid;
     margin-bottom: $spacing-unit;
 
@@ -395,7 +416,7 @@ ul.social-icons {
     }
 
     .post-excerpt {
-      margin-top: $spacing-unit / 2;
+      margin-top: math.div($spacing-unit, 2);
 
       p {
         margin-bottom: 0;
@@ -421,7 +442,7 @@ ul.social-icons {
 
     a, div {
       display: block;
-      padding: $spacing-unit / 4;
+      padding: math.div($spacing-unit, 4);
       border: 1px solid;
       min-width: 41px;
       text-align: center;
@@ -443,11 +464,11 @@ ul.social-icons {
 
 .post-meta {
   @include relative-font-size(0.8);
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: math.div($spacing-unit, 2);
 }
 
 .post-footer {
-  padding-top: $spacing-unit / 2;
+  padding-top: math.div($spacing-unit, 2);
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
@@ -456,11 +477,11 @@ ul.post-taxonomies {
   list-style: none;
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 0 $spacing-unit / 3;
+  margin: 0 0 0 math.div($spacing-unit, 3);
 
   li {
     float: left;
-    margin-right: $spacing-unit / 6;
+    margin-right: math.div($spacing-unit, 6);
     padding: 0.3em 0.5em 0.2em 0.5em;
   }
 }
@@ -480,8 +501,8 @@ ul.post-categories {
 .post-pagination {
   @include relative-font-size(0.8);
   clear: both;
-  padding-top: $spacing-unit / 2;
-  padding-bottom: $spacing-unit / 2;
+  padding-top: math.div($spacing-unit, 2);
+  padding-bottom: math.div($spacing-unit, 2);
   border-top: 1px solid;
 
   @media screen and (min-width: $on-small) {
@@ -500,7 +521,7 @@ ul.post-categories {
   }
 
   .post-next {
-    margin-top: $spacing-unit / 2;
+    margin-top: math.div($spacing-unit, 2);
 
     @media screen and (min-width: $on-small) {
       margin-top: 0;
@@ -571,15 +592,15 @@ ul.post-categories {
   }
 
   li {
-    margin-bottom: $spacing-unit / 3;
+    margin-bottom: math.div($spacing-unit, 3);
 
     > ul,
     > ol {
-      margin-top: $spacing-unit / 3;
+      margin-top: math.div($spacing-unit, 3);
     }
 
     p, blockquote, pre, figure, iframe, %vertical-rhythm {
-      margin-bottom: $spacing-unit / 3;
+      margin-bottom: math.div($spacing-unit, 3);
     }
   }
 }
@@ -607,7 +628,7 @@ ul.post-categories {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px solid;
-    margin-bottom: $spacing-unit / 3;
+    margin-bottom: math.div($spacing-unit, 3);
   }
 }
 
@@ -668,7 +689,7 @@ figcaption.align-center {
   @include relative-font-size(0.8);
 
   p, ul {
-    margin-bottom: $spacing-unit / 4;
+    margin-bottom: math.div($spacing-unit, 4);
   }
 }
 
@@ -679,16 +700,16 @@ figcaption.align-center {
 
   .footer-col {
     width: calc(100% - (#{$spacing-unit} / 2));
-    padding: 0 ($spacing-unit / 2);
+    padding: 0 (math.div($spacing-unit, 2));
 
     &:first-child {
-      padding-right: $spacing-unit / 2;
+      padding-right: math.div($spacing-unit, 2);
       padding-left: 0;
     }
 
     &:last-child {
       padding-right: 0;
-      padding-left: $spacing-unit / 2;
+      padding-left: math.div($spacing-unit, 2);
     }
   }
 }
