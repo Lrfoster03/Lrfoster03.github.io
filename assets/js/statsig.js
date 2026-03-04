@@ -214,54 +214,6 @@ function getDynamicConfigValue(configName, fallbackValue = {}) {
           finished: [],
         })
       : fallbackValue;
-
-<<<<<<< Updated upstream
-    await statsig.initialize(
-      window.STATSIG_CLIENT_KEY,
-      { userID: "WebsiteUser" },
-      {
-        environment: { tier: window.JEKYLL_ENV },
-      }
-    );
-
-    console.log("Analytics enabled");
-
-    // Get IP address
-    const res = await fetch("https://api.ipify.org?format=json");
-    const data = await res.json();
-    ip = data.ip;
-
-    // Get browser and system info
-    const userAgent = navigator.userAgent;
-    const browserInfo = {
-      browser_name: getBrowserName(userAgent),
-      browser_version: getBrowserVersion(userAgent),
-      os: getOS(userAgent),
-      os_version: getOSVersion(userAgent),
-      device_model: navigator.platform,
-      country: Intl.DateTimeFormat().resolvedOptions().locale,
-      language: navigator.language,
-      screen_resolution: `${window.screen.width}x${window.screen.height}`,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    };
-
-    const logEvent =
-      activeClient && typeof activeClient.logEvent === "function"
-        ? activeClient.logEvent.bind(activeClient)
-        : statsig.logEvent.bind(statsig);
-
-    logEvent("Project Site Access", null, {
-      ...browserInfo,
-      ip_address: ip,
-      page: page_title,
-      stable_id: stableID,
-    });
-
-    console.log("Successfully logged user access event");
-  } catch (error) {
-    console.log("Failed to log analytics event:", error.message);
-  }
-=======
   let result = fallback;
 
   try {
@@ -425,7 +377,6 @@ async function initializeStatsig(page_title) {
   })();
 
   return window.statsigInitPromise;
->>>>>>> Stashed changes
 }
 
 window.whenStatsigReady = function () {
