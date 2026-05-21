@@ -12,5 +12,8 @@
       url: /bounce/
     - title: Status
       url: /status/
-    - title: Docs
-      url: /docs/
+    - title: Feature Flags
+      url: https://featureflags.logoas.xyz/
+
+    # - title: Docs
+    #   url: /docs/
