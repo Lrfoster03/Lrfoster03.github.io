@@ -5,17 +5,15 @@
 {% seo %} {% feed_meta %} {% if page.math %} {% include mathjax.html %} {% endif
 %}
 
-<!-- Statsig SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-yt8ZTsabx4SergArwGrJwLMpXYxaWG2nHstUosOBjVa"></script>
-<script src="{{ '/assets/js/statsig.js' | relative_url }}"></script>
+<!-- Feature flags -->
+<script src="{{ '/assets/js/featureflags.js' | relative_url }}"></script>
 
 <script>
   window.JEKYLL_ENV = "{{ jekyll.environment }}";
-  window.STATSIG_CLIENT_KEY = "client-yt8ZTsabx4SergArwGrJwLMpXYxaWG2nHstUosOBjVa";
 </script>
 
 <script>
-  initializeStatsig("{{ page.title | escape }}");
+  initializeFeatureFlags();
 </script>
 
 <!-- Google Fonts -->

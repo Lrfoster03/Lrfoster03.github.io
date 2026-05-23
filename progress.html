@@ -13,14 +13,12 @@ title: Reading Progress Bar
 
 <header class="post-header"></header>
 
-<h1>Finished Books in 2025</h1>
-
 <div id="finished-list"></div>
 
 <script>
   (function () {
-    const CONFIG_NAME = "reading_list_dynamic_config";
-    const EMPTY_CONFIG = { inProgress: [], finished: [] };
+    const CONFIG_NAME = "Reading-List";
+    const EMPTY_CONFIG = { inProgress: [], finished: {} };
 
     function isValidBook(book) {
       return (
@@ -39,13 +37,35 @@ title: Reading Progress Bar
       const inProgress = Array.isArray(config.inProgress)
         ? config.inProgress.filter(isValidBook)
         : [];
-      const finished = Array.isArray(config.finished)
-        ? config.finished.filter(function (name) {
+      const finished = normalizeFinishedBooks(config.finished);
+
+      return { inProgress: inProgress, finished: finished };
+    }
+
+    function normalizeBookNames(bookNames) {
+      return Array.isArray(bookNames)
+        ? bookNames.filter(function (name) {
             return typeof name === "string" && name.trim().length > 0;
           })
         : [];
+    }
 
-      return { inProgress: inProgress, finished: finished };
+    function normalizeFinishedBooks(finished) {
+      if (Array.isArray(finished)) {
+        return { 2025: normalizeBookNames(finished) };
+      }
+
+      if (!finished || typeof finished !== "object") {
+        return {};
+      }
+
+      return Object.keys(finished).reduce(function (result, year) {
+        const bookNames = normalizeBookNames(finished[year]);
+        if (bookNames.length > 0) {
+          result[year] = bookNames;
+        }
+        return result;
+      }, {});
     }
 
     function createProgressSection(title, percentage, cssClass, subtitle) {
@@ -112,21 +132,37 @@ title: Reading Progress Bar
       });
     }
 
-    function renderFinishedBooks(finished) {
+    function sortedFinishedYears(finished) {
+      return Object.keys(finished).sort(function (left, right) {
+        return right.localeCompare(left, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        });
+      });
+    }
+
+    function renderFinishedBooks(finishedByYear) {
       const target = document.getElementById("finished-list");
       target.innerHTML = "";
+      const years = sortedFinishedYears(finishedByYear);
 
-      if (!finished.length) {
+      if (!years.length) {
         const empty = document.createElement("p");
         empty.textContent = "No finished books yet.";
         target.appendChild(empty);
         return;
       }
 
-      finished.forEach(function (bookName) {
-        target.appendChild(
-          createProgressSection(bookName, 100, "progress-barFinished")
-        );
+      years.forEach(function (year) {
+        const heading = document.createElement("h1");
+        heading.textContent = "Finished Books in " + year;
+        target.appendChild(heading);
+
+        finishedByYear[year].forEach(function (bookName) {
+          target.appendChild(
+            createProgressSection(bookName, 100, "progress-barFinished")
+          );
+        });
       });
     }
 
@@ -137,16 +173,16 @@ title: Reading Progress Bar
     }
 
     function readConfig() {
-      if (typeof window.getStatsigDynamicConfigValue === "function") {
-        return window.getStatsigDynamicConfigValue(CONFIG_NAME, EMPTY_CONFIG);
+      if (typeof window.getFeatureConfigValue === "function") {
+        return window.getFeatureConfigValue(CONFIG_NAME, EMPTY_CONFIG);
       }
       return EMPTY_CONFIG;
     }
 
-    function waitForStatsigAndRender() {
+    function waitForFeatureFlagsAndRender() {
       const initPromise =
-        typeof window.whenStatsigReady === "function"
-          ? window.whenStatsigReady()
+        typeof window.whenFeatureFlagsReady === "function"
+          ? window.whenFeatureFlagsReady()
           : Promise.resolve();
       const timeoutPromise = new Promise(function (resolve) {
         setTimeout(resolve, 5000);
@@ -161,7 +197,7 @@ title: Reading Progress Bar
       });
     }
 
-    waitForStatsigAndRender();
+    waitForFeatureFlagsAndRender();
   })();
 </script>
 
