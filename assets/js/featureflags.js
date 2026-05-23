@@ -1,6 +1,6 @@
 const FEATURE_FLAGS_API_URL = "https://featureflags.logoas.xyz/api/featureflags";
 const FEATURE_FLAGS_USER = "project-website";
-const FEATURE_FLAGS_API_KEY = "ff_client_2G6mT4aY3VEJjVhZFtcMgLVgcnU1Qyx-";
+const FEATURE_FLAGS_API_KEY = "ff_client_k9nDg2_3i13IO9cIcMcg3RF0a1umbhfU";
 
 const EMPTY_FEATURE_FLAG_RESPONSE = {
   featureFlags: {},
