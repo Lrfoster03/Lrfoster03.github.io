@@ -4,7 +4,6 @@ title:  "Touch ID Streamdeck"
 date:   2026-05-30 00:00:00 -0000
 author: "Logan Foster"
 categories: Projects
-model: "/assets/models/Macropad_TouchID v8.obj"
 permalink: /streamdeck
 ---
 
