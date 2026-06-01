@@ -3,7 +3,7 @@ description:
   I'm Logan Foster, an avid maker and technologist interested in all things software and hardware!
   I graduated from Washington State University in 2024 with Bachelors of Science Degrees in Computer Science and Applied Mathematics.
 author: Logan Foster
-avatar: /assets/images/Personal Pic.jpeg
+avatar: /assets/images/Personal Pic.jpg
 email: lrfoster03@gmail.com
 # baseurl: "Logoas.xyz"
 
@@ -53,7 +53,7 @@ exclude:
 twitter:
   username: lrfoster03
   card: summary
-logo: /assets/images/Personal Pic.jpeg
+logo: /assets/images/Personal Pic.jpg
 social:
   name: Logan Foster
   links:
