@@ -13,6 +13,6 @@ Ironically, this was not my initial intention. I wanted to keep it integrated wi
 
 I created a video showcasing the process of integrating the sensor into the streamdeck, and how it works. You can check it out below!
 
-<iframe width="1109" height="728" src="https://youtu.be/vsjjCswyhuU?si=0WBYZzLtwsIk3VjV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1109" height="728" src="https://www.youtube.com/embed/vsjjCswyhuU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The design is based off [this](https://makerworld.com/en/models/1111217-elgato-stream-deck-neo-black-edition#profileId-1107778) makerworld streamdeck design. I was luckily able to easily modify it to fit the sensor on the rear of the design. Its available to download right [here]({{ site.url }}assets/downloads/Stream Deck NEO Touch ID.zip) if you want to print your own!
