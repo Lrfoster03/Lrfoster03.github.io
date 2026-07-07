@@ -6,6 +6,6 @@ permalink: /about/
 
 Hi there, 👋
 
-I’m Logan Foster, an avid maker and technologist interested in all things software and hardware! I graduated from Washington State University in 2024 with Bachelors of Science Degrees in Computer Science and Applied Mathematics. I'm a huge fan of all things tech and love to tinker with new gadgets and software.
+I’m Logan Foster, also known online as Lrfoster03, and Logoas is my personal site for projects, writing, and experiments. I'm an avid maker and technologist interested in all things software and hardware! I graduated from Washington State University in 2024 with Bachelors of Science Degrees in Computer Science and Applied Mathematics. I'm a huge fan of all things tech and love to tinker with new gadgets and software.
 
 I'm interested in AI and Autonomous Applications and love programming robotic and vision driven systems, and I love applying math into my projects! Check out my [Github](https://github.com/Lrfoster03?tab=repositories) to see what I've been working on lately!
