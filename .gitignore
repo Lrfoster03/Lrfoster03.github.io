@@ -6,3 +6,7 @@ _site
 vendor
 
 .env
+mkmf.log
+*.pem
+*.key
+*.pub
