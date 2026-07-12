@@ -1,3 +1,5 @@
 #!/bin/sh
 
-bundle exec jekyll serve --trace
+set -e
+
+script/ruby-exec bundle exec jekyll serve --trace "$@"

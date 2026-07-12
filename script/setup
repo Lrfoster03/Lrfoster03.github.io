@@ -2,4 +2,4 @@
 
 set -e
 
-bundle exec jekyll-auth setup
+script/ruby-exec bundle exec jekyll-auth setup "$@"

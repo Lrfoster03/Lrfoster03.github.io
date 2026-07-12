@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+REPO_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+
+cd "$REPO_ROOT"
+
+# Avoid inherited Ruby managers pointing Bundler at gems built for another Ruby.
+unset GEM_HOME
+unset GEM_PATH
+
+if command -v rbenv >/dev/null 2>&1; then
+  if [ -f .ruby-version ] && [ -z "${RBENV_VERSION:-}" ]; then
+    RBENV_VERSION=$(cat .ruby-version)
+    export RBENV_VERSION
+  fi
+
+  exec rbenv exec "$@"
+fi
+
+exec "$@"
