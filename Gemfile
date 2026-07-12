@@ -5,7 +5,7 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.3.1"
 gem "webrick", "~> 1.8"
-gem "sass-embedded", "= 1.77.8"
+gem "sass-embedded", "~> 1.101.0"
 gem "csv"
 gem "logger"
 gem 'jekyll-auth'
