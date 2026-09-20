@@ -68,7 +68,7 @@ title: Reading Progress Bar
       }, {});
     }
 
-    function createProgressSection(title, percentage, cssClass, subtitle) {
+    function createProgressSection(title, percentage, cssClass, subtitle, index) {
       const section = document.createElement("div");
       section.className = "progress-section";
 
@@ -89,6 +89,10 @@ title: Reading Progress Bar
       const bar = document.createElement("div");
       bar.className = cssClass;
       bar.style.width = percentage + "%";
+      if (index !== undefined) {
+        // The golden angle spreads successive books around the color wheel.
+        bar.style.setProperty("--progress-hue", (210 + index * 137.508) % 360);
+      }
       bar.textContent = percentage + "%";
 
       container.appendChild(bar);
@@ -117,16 +121,15 @@ title: Reading Progress Bar
         const cssClass =
           progress >= 100
             ? "progress-barFinished"
-            : index % 2 === 0
-              ? "progress-barLog"
-              : "progress-barMax";
+            : "progress-barInProgress";
 
         target.appendChild(
           createProgressSection(
             book.name,
             progress,
             cssClass,
-            book.currentPage + " / " + book.totalPages + " pages"
+            book.currentPage + " / " + book.totalPages + " pages",
+            index
           )
         );
       });
@@ -211,31 +214,21 @@ title: Reading Progress Bar
     margin-bottom: 20px;
   }
 
-  .progress-barLog {
+  .progress-barInProgress,
+  .progress-barFinished {
     height: 100%;
-    background-color: #408ec2;
     text-align: center;
     line-height: 30px;
     color: white;
     transition: width 0.3s ease;
   }
 
-  .progress-barMax {
-    height: 100%;
-    background-color: rgb(180, 52, 52);
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    transition: width 0.3s ease;
+  .progress-barInProgress {
+    background-color: hsl(var(--progress-hue), 65%, 32%);
   }
 
   .progress-barFinished {
-    height: 100%;
     background-color: rgb(57, 184, 89);
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    transition: width 0.3s ease;
   }
 
   .progress-section {
